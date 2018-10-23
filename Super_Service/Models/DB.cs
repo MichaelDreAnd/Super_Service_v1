@@ -16,7 +16,7 @@ namespace Super_Service.Models
             List<Company> Companies = new List<Company>();
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Company WHERE ZipCode like @ZipCode AND Address like @Address", conn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Company WHERE ZipCode like @ZipCode OR Address like @Address", conn);
                 cmd.Parameters.AddWithValue("@ZipCode", ZipCode + "%");
                 cmd.Parameters.AddWithValue("@Address", Address + "%");
                 try

@@ -23,10 +23,15 @@ namespace Super_Service.Controllers
         [HttpPost]
         public IActionResult Search(int zipCode, string city)
         {
-            List<Company> result = DB.GetCompanies(zipCode, city);
-            ViewBag.lstCompanies = new MultiSelectList(result, "CompanyName", "Address", "ZipCode");
-            //ViewBag.Result = result;
-            //ViewBag.Result = $"{zipCode} + {city} = {result}";
+            ViewBag.lstCompanies = new List<Company>();
+            ViewBag.lstCompanies = DB.GetCompanies(zipCode, city);
+            
+            //ViewBag.lstCompanies = new MultiSelectList(result, "CompanyName", "Address", "ZipCode");
+            /*foreach (var item in result)
+            {
+                ViewBag.lstCompanies += $"Firma: {item.CompanyName}, {item.Address}, {item.ZipCode}";
+            }*/
+            //ViewBag.lstCompanies = result;
             return View();
         }
 

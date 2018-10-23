@@ -27,8 +27,27 @@
 
         <input type="submit" value="Find frisør" />
         <br />
-        @ViewBag.lstCompanies
-        @*@ViewBag.Result*@
+
+        <table>
+            @if (ViewBag.lstCompanies != null)
+            {
+                @foreach (var company in ViewBag.lstCompanies)
+                {
+                    {
+                        <tr>
+                            <th>Firma</th>
+                            <th>Adresse</th>
+                            <th>PostNr</th>
+                        </tr>
+                        <tr>
+                            <td>@company.CompanyName</td>
+                            <td>@company.Address</td>
+                            <td>@company.ZipCode</td>
+                        </tr>
+                    }
+                }
+            }
+        </table>
     </form>
 
     @*<p>Full width:</p>

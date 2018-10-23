@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Search";
 }
 <!DOCTYPE html>
@@ -13,16 +12,35 @@
     <title>Page Title</title>
 </head>
 <body>
-    <p>Full width:</p>
-    <form class="example" action="/action_page.php">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
+
+    <h1>Frisør startside!</h1>
+    <h2>Klokken er: @DateTime.Now</h2>
+
+    <form asp-controller="Home" asp-action="Search" method="post">
+        <p>Postnr.:</p>
+        <input type="text" name="zipCode" />
+        <br />
+
+        <p>By:</p>
+        <input type="text" name="city" />
+        <br />
+
+        <input type="submit" value="Find frisør" />
+        <br />
+        @ViewBag.lstCompanies
+        @*@ViewBag.Result*@
     </form>
 
-    <p>Centered inside a form with max-width:</p>
-    <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
-        <input type="text" placeholder="Search.." name="search2">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    @*<p>Full width:</p>
+        <form class="example" action="/action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>*@
+
+    @*<p>Centered inside a form with max-width:</p>
+        <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+            <input type="text" placeholder="Search.." name="search2">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>*@
 </body>
 </html> 

@@ -13,9 +13,6 @@ namespace Super_Service.Controllers
             return View();
         }
 
-        public IActionResult Search()
-        {
-            return View();
-        }
+
     }
 }

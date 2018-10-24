@@ -113,16 +113,17 @@ http://www.tooplate.com/view/2106-soft-landing
     position: relative;
   }
 
-  .online-form .form-control {
-    border-color: #f0f0f0;
-    display: inline-block;
-    vertical-align: top;
-    border-radius: 50px;
-    box-shadow: none;
-    height: 50px;
-    margin-right: 0.5em;
-    padding-left: 15px;
-  }
+    .online-form .form-control {
+        border-color: #f0f0f0;
+        display: inline-block;
+        vertical-align: top;
+        border-radius: 50px;
+        box-shadow: none;
+        height: 50px;
+        margin-right: 0.5em;
+        padding-left: 15px;
+        margin-bottom: 15px !important;
+    }
 
   .online-form input[type="text"] {
     width: 60%;
@@ -132,8 +133,8 @@ http://www.tooplate.com/view/2106-soft-landing
     background: #29ca8e;
     border: 0;
     color: #ffffff;
-    position: absolute;
-    right: 6em;
+    /*position: absolute;
+    right: 14em;*/
     width: 25%;
   }
 

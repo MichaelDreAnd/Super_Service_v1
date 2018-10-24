@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -36,5 +37,64 @@ namespace Super_Service.Models
             }
             return Companies;
         }
+
+        internal static void PostCompany(string name, string address, int zipCode, string city)
+        {
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Company (CompanyName, Address, [ZipCode]) VALUES (@CompanyName, @Address, @ZipCode)", conn);
+                    cmd.Parameters.Add(CreateParam("@CompanyName", name));
+                    cmd.Parameters.Add(CreateParam("@Address", address));
+                    cmd.Parameters.Add(CreateParam("@ZipCode", zipCode));
+
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+            }
+        }
+
+        #region CREATEPARAMS
+        private static SqlParameter CreateParam(string paramName, string paramValue)
+        {//parameter methods which convert the parameter into either varchar or int.
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = paramName;
+            param.Value = paramValue;
+            param.SqlDbType = SqlDbType.VarChar;
+            return param;
+        }
+        private static SqlParameter CreateParam(string paramName, double paramValue)
+        {//parameter methods which convert the parameter into either varchar or int.
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = paramName;
+            param.Value = paramValue;
+            param.SqlDbType = SqlDbType.Float;
+            return param;
+        }
+
+        private static SqlParameter CreateParam(string paramName, int paramValue)
+        {
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = paramName;
+            param.Value = paramValue;
+            param.SqlDbType = SqlDbType.Int;
+            return param;
+        }
+        private static SqlParameter CreateParam(string paramName, DateTime paramValue)
+        {
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = paramName;
+            param.Value = paramValue;
+            param.SqlDbType = SqlDbType.DateTime;
+            return param;
+        }
+
+        #endregion
     }
 }

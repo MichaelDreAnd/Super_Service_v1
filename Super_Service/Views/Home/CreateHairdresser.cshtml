@@ -3,18 +3,30 @@
 @model Hairdresser
 @{
     ViewData["Title"] = "CreateHairdresser";
-    
-    
+
+
 }
 
 <h2>CreateHairdresser</h2>
 
-<label for="lblCompanyName">Virksomhed</label>
-<input type="text" name="inputVirksomhed" value="@Model.Name"/> <br />
-<label for="lblCompanyAddress">Adresse</label>
-<input type="text" name="inputAddress" value="@Model.Address"/> <br />
-<label for="lblZipCOde">Postnummer</label>
-<input type="number" name="inputZipCode" value="@Model.ZipCode"/><br />
-<label for="lblCity">By</label>
-<input type="text" name="inputCity" value="@Model.City" /><br />
-<input type="submit" value="Opret" onclick="" />
+<form asp-controller="Home" asp-action="CreateHairdresser" method="post" class="online-form">
+    <p>Virksomhed:</p>
+    <input type="text" name="companyName" class="form-control" />
+    <br />
+
+    <p>Adresse:</p>
+    <input type="text" name="address" class="form-control" />
+    <br />
+
+    <p>Postnummer:</p>
+    <input type="text" name="zipCode" class="form-control" />
+    <br />
+
+    <p>By:</p>
+    <input type="text" name="city" class="form-control" />
+    <br />
+
+    <button type="submit" class="form-control">Opret virksomhed</button>
+    <br />
+
+</form>

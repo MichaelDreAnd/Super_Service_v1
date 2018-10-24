@@ -39,5 +39,13 @@ namespace Super_Service.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult CreateHairdresser(string companyName, string address, int zipCode, string city)
+        {
+            DB.PostCompany(companyName, address, zipCode, city);
+            
+            return View();
+        }
     }
 }

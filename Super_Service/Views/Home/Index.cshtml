@@ -14,9 +14,22 @@
                 <div class="home-info">
                     <h3>SUPER SERVICE</h3>
                     <h1>Find frisør i nærheden af dig!</h1>
-                    <form action="" method="get" class="online-form">
-                        <input type="text" name="text" class="form-control" placeholder="Indtast postnummer/by" required="">
-                        <button type="submit" class="form-control">Søg</button>
+                    @*<form action="" method="get" class="online-form">
+            <input type="text" name="text" class="form-control" placeholder="Indtast postnummer/by" required="">
+            <button type="submit" class="form-control">Søg</button>
+        </form>*@
+                    <form asp-controller="Home" asp-action="Search" method="post" class="online-form">
+                        <p>Postnr.:</p>
+                        <input type="text" name="zipCode" class="form-control"/>
+                        <br />
+
+                        <p>By:</p>
+                        <input type="text" name="city" class="form-control"/>
+                        <br />
+
+                        <button type="submit" class="form-control">Find frisør</button>/>
+                        <br />
+                        
                     </form>
                 </div>
             </div>

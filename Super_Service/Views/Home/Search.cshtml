@@ -17,17 +17,6 @@
     <h2>Klokken er: @DateTime.Now</h2>
 
     <form asp-controller="Home" asp-action="Search" method="post">
-        <p>Postnr.:</p>
-        <input type="text" name="zipCode" />
-        <br />
-
-        <p>By:</p>
-        <input type="text" name="city" />
-        <br />
-
-        <input type="submit" value="Find frisør" />
-        <br />
-
         <table>
             @if (ViewBag.lstCompanies != null)
             {

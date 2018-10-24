@@ -1,54 +1,42 @@
 ﻿@{
     ViewData["Title"] = "Search";
 }
-<!DOCTYPE html>
 
-<link rel="stylesheet" href="css/style.css">
-<!-- Load icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <section id="home" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
 
-<html>
-<head>
-    <title>Page Title</title>
-</head>
-<body>
+                <div class="col-md-offset-3 col-md-6 col-sm-12">
+                    <div class="home-info">
+                        <h3>SUPER SERVICE</h3>
+                        <h1>Frisør i nærheden af dig!</h1>
+                        <form asp-controller="Home" asp-action="Search" method="post" class="online-form">
+                            <table>
+                                @if (ViewBag.lstCompanies != null)
+                                {
+                                    @foreach (var company in ViewBag.lstCompanies)
+                                    {
+                                        {
+                                            <tr>
+                                                <th>Firma</th>
+                                                <th>Adresse</th>
+                                                <th>PostNr</th>
+                                            </tr>
+                                            <tr>
+                                                <td>@company.CompanyName</td>
+                                                <td>@company.Address</td>
+                                                <td>@company.ZipCode</td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </table>
+                        </form>
+                        
+                    </div>
+                </div>
 
-    <h1>Frisør startside!</h1>
-    <h2>Klokken er: @DateTime.Now</h2>
-
-    <form asp-controller="Home" asp-action="Search" method="post">
-        <table>
-            @if (ViewBag.lstCompanies != null)
-            {
-                @foreach (var company in ViewBag.lstCompanies)
-                {
-                    {
-                        <tr>
-                            <th>Firma</th>
-                            <th>Adresse</th>
-                            <th>PostNr</th>
-                        </tr>
-                        <tr>
-                            <td>@company.CompanyName</td>
-                            <td>@company.Address</td>
-                            <td>@company.ZipCode</td>
-                        </tr>
-                    }
-                }
-            }
-        </table>
-    </form>
-
-    @*<p>Full width:</p>
-        <form class="example" action="/action_page.php">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>*@
-
-    @*<p>Centered inside a form with max-width:</p>
-        <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
-            <input type="text" placeholder="Search.." name="search2">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>*@
-</body>
-</html> 
+            </div>
+        </div>
+    </section> 
